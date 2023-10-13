@@ -1,63 +1,94 @@
-function clickBtn0(){
+//問題数随時更新
+var allen = "2";
+//それぞれの解説を書く
 
 
 
-//セレクトの結果を取得＞関数に格納＞正誤判定＞正誤を関数に格納（正答率も）＞出力
+var kaisetu=[
+"解説を書く",
+"解説を書く"
+];
 
-//選択肢で選んだ回答　随時追加
-var anslis = [
-String(document.form1.q1.selectedIndex),
-String(document.form1.q2.selectedIndex)
-]
-
-//問題の正解 随時追加
-var correct = [1,3];
-
-var seigo="";
-var scr=0;
-
-for (let i = 0; i < anslis.length; i++) {
-let j=i+1;
-if (anslis[i] == correct[i]) {
-scr=scr+1
- seigo =seigo+ '問'+j+ ' 正解<br>'  ;
-}else{
-    seigo =seigo + '問'+j+ ' 不正解<br>';
-};
+var span=[];
+var qqq=[];
+for (let i = 1; i < Number(allen)+1; i++){
+span.push("span"+i);
+qqq.push("q"+i);
 }
 
+function answer(){
+let seigo = "";
+let maru = 0;
+let url = "https://twitter.com/intent/tweet?text=";
+let urltext="text=---------------";
+let urlurl="&url=";
+let urlhashtags= "&hashtags=";
+let urlafter = "&url=https://atmrrtiv.github.io&hashtags=検定"
+let urlenco="";
+let urlencobe="";
+let seigomae="";
 
-scr= scr/anslis.length *100;
-
-seigo="正答率 "+scr+"%"+" <br>"+ seigo ;
-
+//改行 %0A
+//https://twitter.com/intent/tweet?text=ツイート内容&url=https://atmrrtiv.github.io&hashtags=検定
 
 
+for (let i = 1; i < Number(allen)+1; i++){
+if ( document.getElementById('Q').elements["q"+i].value == "1") {
+maru=maru+1
+seigo=seigo+i+"問目 "+"正解<br>";
+}else{
+seigo=seigo+i+"問目 "+"不正解<br>";
+}
+}
 
-	document.getElementById("span0").innerHTML= seigo;
+seigomae="正解数 "+maru+"/"+allen+": 正答率 "+Math.ceil(maru/allen*100)+"%";
+seigo=seigomae+"<br>"+seigo+"<br>";
+
+
+urlencobe = url+seigomae+urlafter;
+urlenco = encodeURI(urlencobe);
+seigo="<a href="+urlenco+ ">結果をツイートする</a>"  
++"<br>" +seigo;
+
+
+
+
+
+document.getElementById("kotae").innerHTML= seigo;
 }
 
 
 //ひたすらボタンを置いていく
-
 function clickBtn1(){
-if(String(document.form1.q1.selectedIndex)==0){
-document.getElementById("span1").innerHTML=
-"回答を選んでください"
-}else{
-document.getElementById("span1").innerHTML=
- "答えと解説";
+//aの値を入れる　ボタンの後ろと同じ
+let a=1;
+let ans = document.getElementById('Q').elements[qqq[a-1]].value;
+if(ans==0){
+ans="<h3>不正解</h3>"}
+else if(ans==1){
+ans="<h3>正解</h3>"}
+ans=ans+kaisetu[a-1];
+document.getElementById(span[a-1]).innerHTML = ans;
 }
-}
+
+
 
 function clickBtn2(){
-if(String(document.form1.q2.selectedIndex)==0){
-document.getElementById("span2").innerHTML=
-"回答を選んでください"
-}else{
-document.getElementById("span2").innerHTML=
- "答えと解説";
+//aの値を入れる　ボタンの後ろと同じ
+let a=2;
+let ans = document.getElementById('Q').elements[qqq[a-1]].value;
+if(ans==0){
+ans="<h3>不正解</h3>"}
+else if(ans==1){
+ans="<h3>正解</h3>"}
+ans=ans+kaisetu[a-1];
+document.getElementById(span[a-1]).innerHTML = ans;
 }
+
+
+function clickBtn3(){
+document.getElementById("span3").innerHTML=
+document.getElementById('Q').elements['q3'].value;
 }
 
 
