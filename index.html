@@ -6,51 +6,73 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>サンプル</title>
   
-  <script src="script.js"></script>
- 
+
+<script src="script.js"></script>
+
 </head>
 <body>
 <h1>タイトル</h1>
-<form name="form1">
+<form id="Q">
 <h3>■問1</h3>
-<P>誕生日</P>  
-	<select name="q1">
-	    <option >未選択</option>
-	    <option >7月26日</option>
-	    <option >8月1日</option>
-	    <option >2月10日</option>	
-	</select>
-<br><br>
+<P>・選択肢の技の中で一番ふっ飛ばしの角度が低い（小さい）攻撃を答えなさい。<br>
+ただし技を被弾する相手のダメージパーセントは120％で上方向にベクトル変更しているものとする。
+
+
+</P>  
+    <input name="q1" type="radio" value="0"> ルキナの後ろ投げ<br>
+    <input name="q1" type="radio" value="1"> アイクの後ろ投げ<br>
+    <input name="q1" type="radio" value="0"> ジョーカーの後ろ投げ<br>
+    <input name="q1" type="radio" value="0"> ヨッシーの後ろ投げ<br>
+    <input name="q1" type="radio" value="0"> クラウドの後ろ投げ<br>
+    <input name="q1" type="radio" value="0"> ヒカリの後ろ投げ<br>
+    </p>
+
 <input type="button" value="答え" onclick="clickBtn1()"/>
 <p> <span id="span1"></span></p>
 <br>
 
 
 <h3>■問2</h3>
-<P>楽器</P>	
-	<select name="q2">
-	    <option >未選択</option>
-	    <option >ラッパ</option>
-	    <option >フルート</option>
-	    <option >サックス</option>
-	    <option >トロンボーン</option>	    
-	</select>	
-<br><br>
+<P>
+今AaBbの四人でチームをしており、Aがルカリオを使用している。<br>
+選択肢の中で、波動補正が一番大きい場面はどれか。<br>画像をつける
+<br>
+
+①A:2スト50% a:3スト50% B:3スト50% b:3スト50%<br>
+②A:1スト50% a:2スト50% B:2スト50% b:2スト50%<br>
+③A:1スト40% a:1スト50% B:3スト50% b:3スト50%<br>
+④A:1スト30% a:3スト70% B:1スト50% b:1スト50%<br>
+⑤A:1スト20% a:3スト70% B:3スト50% b:3スト50%<br>
+
+
+</P>	
+    <input name="q2" type="radio" value="0"> ①が一番大きい  <br> 
+    <input name="q2" type="radio" value="0"> ②が一番大きい  <br> 
+    <input name="q2" type="radio" value="1"> ③が一番大きい  <br> 
+    <input name="q2" type="radio" value="0"> ④が一番大きい   <br>
+    <input name="q2" type="radio" value="0"> ⑤が一番大きい  <br> 
+    </p>
+    
+    
+
+    	
+
 <input type="button" value="答え" onclick="clickBtn2()"/>
 <p> <span id="span2"></span></p>
 </form>
 <br>
-<input type="button" value="結果を見る" onclick="clickBtn0()"/>
 
 
 
-<p>結果 <br> <span id="span0"></span></p>
+<button onclick="answer();">結果</button>
+<div id="kotae">ボタンを押してください</div>
+<br>
 
 
 <footer>
   <address>
     このサイトに関するお問い合わせ先： <br>
-    <a href="a">ヘッダーリンク</a>
+    <a href="a">リンクかく</a>
   </address>
 
 </footer>
